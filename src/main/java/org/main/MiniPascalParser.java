@@ -1,4 +1,6 @@
-// Generated from src/grammar/g.g4 by ANTLR 4.13.2
+package org.main;
+
+// Generated from src/grammar/MiniPascal.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +11,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class gParser extends Parser {
+public class MiniPascalParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -106,7 +108,7 @@ public class gParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "g.g4"; }
+	public String getGrammarFileName() { return "MiniPascal.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -117,16 +119,16 @@ public class gParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public gParser(TokenStream input) {
+	public MiniPascalParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Program_blockContext extends ParserRuleContext {
-		public TerminalNode PROGRAM() { return getToken(gParser.PROGRAM, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode PROGRAM() { return getToken(MiniPascalParser.PROGRAM, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public SrcContext src() {
 			return getRuleContext(SrcContext.class,0);
 		}
@@ -136,7 +138,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_program_block; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitProgram_block(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitProgram_block(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -176,14 +178,14 @@ public class gParser extends Parser {
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode DOT() { return getToken(gParser.DOT, 0); }
+		public TerminalNode DOT() { return getToken(MiniPascalParser.DOT, 0); }
 		public SrcContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_src; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitSrc(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitSrc(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -227,7 +229,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_declaration; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitDeclaration(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -274,7 +276,7 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Var_blockContext extends ParserRuleContext {
-		public TerminalNode VAR() { return getToken(gParser.VAR, 0); }
+		public TerminalNode VAR() { return getToken(MiniPascalParser.VAR, 0); }
 		public List<VariablesContext> variables() {
 			return getRuleContexts(VariablesContext.class);
 		}
@@ -287,7 +289,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_var_block; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitVar_block(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitVar_block(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -350,11 +352,11 @@ public class gParser extends Parser {
 		public ConstTypeContext constType() {
 			return getRuleContext(ConstTypeContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public Constant_declarationContext(VariablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitConstant_declaration(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitConstant_declaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -363,47 +365,47 @@ public class gParser extends Parser {
 		public VarNamesContext varNames() {
 			return getRuleContext(VarNamesContext.class,0);
 		}
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public Variable_declarationContext(VariablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitVariable_declaration(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitVariable_declaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Array_declarationContext extends VariablesContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public ArrayContext array() {
 			return getRuleContext(ArrayContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public Array_declarationContext(VariablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitArray_declaration(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitArray_declaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Constant_initializationContext extends VariablesContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public ConstTypeContext constType() {
 			return getRuleContext(ConstTypeContext.class,0);
 		}
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
-		public TerminalNode CONST_VAL() { return getToken(gParser.CONST_VAL, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
+		public TerminalNode CONST_VAL() { return getToken(MiniPascalParser.CONST_VAL, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public Constant_initializationContext(VariablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitConstant_initialization(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitConstant_initialization(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -415,7 +417,7 @@ public class gParser extends Parser {
 		public Variable_initializationContext(VariablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitVariable_initialization(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitVariable_initialization(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -508,13 +510,13 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class VarNamesContext extends ParserRuleContext {
-		public List<TerminalNode> ID() { return getTokens(gParser.ID); }
+		public List<TerminalNode> ID() { return getTokens(MiniPascalParser.ID); }
 		public TerminalNode ID(int i) {
-			return getToken(gParser.ID, i);
+			return getToken(MiniPascalParser.ID, i);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(gParser.COMMA); }
+		public List<TerminalNode> COMMA() { return getTokens(MiniPascalParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(gParser.COMMA, i);
+			return getToken(MiniPascalParser.COMMA, i);
 		}
 		public VarNamesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -522,7 +524,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_varNames; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitVarNames(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitVarNames(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -579,7 +581,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_function_block; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitFunction_block(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitFunction_block(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -632,11 +634,11 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class String_TypeContext extends TypeContext {
-		public TerminalNode STRING() { return getToken(gParser.STRING, 0); }
+		public TerminalNode STRING() { return getToken(MiniPascalParser.STRING, 0); }
 		public String_TypeContext(TypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitString_Type(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitString_Type(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -648,7 +650,7 @@ public class gParser extends Parser {
 		public Array_TypeContext(TypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitArray_Type(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitArray_Type(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -707,31 +709,31 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class BOOLContext extends ArrayTypeContext {
-		public TerminalNode BOOLEAN() { return getToken(gParser.BOOLEAN, 0); }
+		public TerminalNode BOOLEAN() { return getToken(MiniPascalParser.BOOLEAN, 0); }
 		public BOOLContext(ArrayTypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitBOOL(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitBOOL(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class CHARContext extends ArrayTypeContext {
-		public TerminalNode CHAR() { return getToken(gParser.CHAR, 0); }
+		public TerminalNode CHAR() { return getToken(MiniPascalParser.CHAR, 0); }
 		public CHARContext(ArrayTypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitCHAR(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitCHAR(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class INTContext extends ArrayTypeContext {
-		public TerminalNode INTEGER() { return getToken(gParser.INTEGER, 0); }
+		public TerminalNode INTEGER() { return getToken(MiniPascalParser.INTEGER, 0); }
 		public INTContext(ArrayTypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitINT(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitINT(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -796,21 +798,21 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class CONSTSTRContext extends ConstTypeContext {
-		public TerminalNode CONSTSTR() { return getToken(gParser.CONSTSTR, 0); }
+		public TerminalNode CONSTSTR() { return getToken(MiniPascalParser.CONSTSTR, 0); }
 		public CONSTSTRContext(ConstTypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitCONSTSTR(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitCONSTSTR(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class CONSTCHContext extends ConstTypeContext {
-		public TerminalNode CONSTCHAR() { return getToken(gParser.CONSTCHAR, 0); }
+		public TerminalNode CONSTCHAR() { return getToken(MiniPascalParser.CONSTCHAR, 0); }
 		public CONSTCHContext(ConstTypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitCONSTCH(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitCONSTCH(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -855,27 +857,27 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ArrayContext extends ParserRuleContext {
-		public TerminalNode ARRAY() { return getToken(gParser.ARRAY, 0); }
-		public TerminalNode LBRACK() { return getToken(gParser.LBRACK, 0); }
+		public TerminalNode ARRAY() { return getToken(MiniPascalParser.ARRAY, 0); }
+		public TerminalNode LBRACK() { return getToken(MiniPascalParser.LBRACK, 0); }
 		public List<RangeContext> range() {
 			return getRuleContexts(RangeContext.class);
 		}
 		public RangeContext range(int i) {
 			return getRuleContext(RangeContext.class,i);
 		}
-		public TerminalNode RBRACK() { return getToken(gParser.RBRACK, 0); }
-		public TerminalNode OF() { return getToken(gParser.OF, 0); }
+		public TerminalNode RBRACK() { return getToken(MiniPascalParser.RBRACK, 0); }
+		public TerminalNode OF() { return getToken(MiniPascalParser.OF, 0); }
 		public ArrayTypeContext arrayType() {
 			return getRuleContext(ArrayTypeContext.class,0);
 		}
-		public TerminalNode COMMA() { return getToken(gParser.COMMA, 0); }
+		public TerminalNode COMMA() { return getToken(MiniPascalParser.COMMA, 0); }
 		public ArrayContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_array; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitArray(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitArray(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -926,18 +928,18 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class RangeContext extends ParserRuleContext {
-		public List<TerminalNode> NUM() { return getTokens(gParser.NUM); }
+		public List<TerminalNode> NUM() { return getTokens(MiniPascalParser.NUM); }
 		public TerminalNode NUM(int i) {
-			return getToken(gParser.NUM, i);
+			return getToken(MiniPascalParser.NUM, i);
 		}
-		public TerminalNode DOTDOT() { return getToken(gParser.DOTDOT, 0); }
+		public TerminalNode DOTDOT() { return getToken(MiniPascalParser.DOTDOT, 0); }
 		public RangeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_range; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitRange(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitRange(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -981,64 +983,64 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Function_variables_arrayContext extends Function_variablesContext {
-		public List<TerminalNode> ID() { return getTokens(gParser.ID); }
+		public List<TerminalNode> ID() { return getTokens(MiniPascalParser.ID); }
 		public TerminalNode ID(int i) {
-			return getToken(gParser.ID, i);
+			return getToken(MiniPascalParser.ID, i);
 		}
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public ArrayContext array() {
 			return getRuleContext(ArrayContext.class,0);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(gParser.COMMA); }
+		public List<TerminalNode> COMMA() { return getTokens(MiniPascalParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(gParser.COMMA, i);
+			return getToken(MiniPascalParser.COMMA, i);
 		}
 		public Function_variables_arrayContext(Function_variablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitFunction_variables_array(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitFunction_variables_array(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Function_variables_normalContext extends Function_variablesContext {
-		public List<TerminalNode> ID() { return getTokens(gParser.ID); }
+		public List<TerminalNode> ID() { return getTokens(MiniPascalParser.ID); }
 		public TerminalNode ID(int i) {
-			return getToken(gParser.ID, i);
+			return getToken(MiniPascalParser.ID, i);
 		}
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(gParser.COMMA); }
+		public List<TerminalNode> COMMA() { return getTokens(MiniPascalParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(gParser.COMMA, i);
+			return getToken(MiniPascalParser.COMMA, i);
 		}
 		public Function_variables_normalContext(Function_variablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitFunction_variables_normal(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitFunction_variables_normal(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class Function_variables_constContext extends Function_variablesContext {
-		public List<TerminalNode> ID() { return getTokens(gParser.ID); }
+		public List<TerminalNode> ID() { return getTokens(MiniPascalParser.ID); }
 		public TerminalNode ID(int i) {
-			return getToken(gParser.ID, i);
+			return getToken(MiniPascalParser.ID, i);
 		}
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public ConstTypeContext constType() {
 			return getRuleContext(ConstTypeContext.class,0);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(gParser.COMMA); }
+		public List<TerminalNode> COMMA() { return getTokens(MiniPascalParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(gParser.COMMA, i);
+			return getToken(MiniPascalParser.COMMA, i);
 		}
 		public Function_variables_constContext(Function_variablesContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitFunction_variables_const(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitFunction_variables_const(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1150,17 +1152,17 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionContext extends ParserRuleContext {
-		public TerminalNode FUNCTION() { return getToken(gParser.FUNCTION, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode COLON() { return getToken(gParser.COLON, 0); }
+		public TerminalNode FUNCTION() { return getToken(MiniPascalParser.FUNCTION, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode COLON() { return getToken(MiniPascalParser.COLON, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public List<TerminalNode> SEMI() { return getTokens(gParser.SEMI); }
+		public List<TerminalNode> SEMI() { return getTokens(MiniPascalParser.SEMI); }
 		public TerminalNode SEMI(int i) {
-			return getToken(gParser.SEMI, i);
+			return getToken(MiniPascalParser.SEMI, i);
 		}
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
@@ -1180,7 +1182,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_function; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitFunction(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitFunction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1261,8 +1263,8 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class BodyContext extends ParserRuleContext {
-		public TerminalNode BEGIN() { return getToken(gParser.BEGIN, 0); }
-		public TerminalNode END() { return getToken(gParser.END, 0); }
+		public TerminalNode BEGIN() { return getToken(MiniPascalParser.BEGIN, 0); }
+		public TerminalNode END() { return getToken(MiniPascalParser.END, 0); }
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
 		}
@@ -1275,7 +1277,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_body; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1338,7 +1340,7 @@ public class gParser extends Parser {
 		public Nested_statementContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitNested_statement(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitNested_statement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1350,7 +1352,7 @@ public class gParser extends Parser {
 		public Simple_statementContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitSimple_statement(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitSimple_statement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1419,7 +1421,7 @@ public class gParser extends Parser {
 		public SimpleWriteContext(SimpleContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitSimpleWrite(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitSimpleWrite(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1431,7 +1433,7 @@ public class gParser extends Parser {
 		public SimpleReadContext(SimpleContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitSimpleRead(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitSimpleRead(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1443,7 +1445,7 @@ public class gParser extends Parser {
 		public SimpleCallFunctionContext(SimpleContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitSimpleCallFunction(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitSimpleCallFunction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1455,7 +1457,7 @@ public class gParser extends Parser {
 		public SimpleAssigmentContext(SimpleContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitSimpleAssigment(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitSimpleAssigment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1532,7 +1534,7 @@ public class gParser extends Parser {
 		public NestedIfContext(NestedContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitNestedIf(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitNestedIf(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1544,7 +1546,7 @@ public class gParser extends Parser {
 		public NestedWhileContext(NestedContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitNestedWhile(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitNestedWhile(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1556,7 +1558,7 @@ public class gParser extends Parser {
 		public NestedRepeatContext(NestedContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitNestedRepeat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitNestedRepeat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1568,7 +1570,7 @@ public class gParser extends Parser {
 		public NestedForContext(NestedContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitNestedFor(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitNestedFor(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1641,24 +1643,24 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprIntContext extends ExpressionContext {
-		public TerminalNode NUM() { return getToken(gParser.NUM, 0); }
+		public TerminalNode NUM() { return getToken(MiniPascalParser.NUM, 0); }
 		public ExprIntContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprInt(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprInt(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprNegContext extends ExpressionContext {
-		public TerminalNode MINUS() { return getToken(gParser.MINUS, 0); }
+		public TerminalNode MINUS() { return getToken(MiniPascalParser.MINUS, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public ExprNegContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprNeg(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprNeg(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1670,39 +1672,39 @@ public class gParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode EQUAL() { return getToken(gParser.EQUAL, 0); }
-		public TerminalNode NOTEQUAL() { return getToken(gParser.NOTEQUAL, 0); }
-		public TerminalNode LT() { return getToken(gParser.LT, 0); }
-		public TerminalNode LE() { return getToken(gParser.LE, 0); }
-		public TerminalNode GE() { return getToken(gParser.GE, 0); }
-		public TerminalNode GT() { return getToken(gParser.GT, 0); }
+		public TerminalNode EQUAL() { return getToken(MiniPascalParser.EQUAL, 0); }
+		public TerminalNode NOTEQUAL() { return getToken(MiniPascalParser.NOTEQUAL, 0); }
+		public TerminalNode LT() { return getToken(MiniPascalParser.LT, 0); }
+		public TerminalNode LE() { return getToken(MiniPascalParser.LE, 0); }
+		public TerminalNode GE() { return getToken(MiniPascalParser.GE, 0); }
+		public TerminalNode GT() { return getToken(MiniPascalParser.GT, 0); }
 		public ExprCompContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprComp(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprComp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprNotContext extends ExpressionContext {
-		public TerminalNode NOT() { return getToken(gParser.NOT, 0); }
+		public TerminalNode NOT() { return getToken(MiniPascalParser.NOT, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public ExprNotContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprNot(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprNot(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprStrContext extends ExpressionContext {
-		public TerminalNode STR() { return getToken(gParser.STR, 0); }
+		public TerminalNode STR() { return getToken(MiniPascalParser.STR, 0); }
 		public ExprStrContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprStr(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprStr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1714,29 +1716,29 @@ public class gParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode ASTERISK() { return getToken(gParser.ASTERISK, 0); }
-		public TerminalNode SLASH() { return getToken(gParser.SLASH, 0); }
-		public TerminalNode MOD() { return getToken(gParser.MOD, 0); }
-		public TerminalNode DIV() { return getToken(gParser.DIV, 0); }
+		public TerminalNode ASTERISK() { return getToken(MiniPascalParser.ASTERISK, 0); }
+		public TerminalNode SLASH() { return getToken(MiniPascalParser.SLASH, 0); }
+		public TerminalNode MOD() { return getToken(MiniPascalParser.MOD, 0); }
+		public TerminalNode DIV() { return getToken(MiniPascalParser.DIV, 0); }
 		public ExprMultContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprMult(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprMult(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprCharContext extends ExpressionContext {
-		public List<TerminalNode> SINGLE_QUOTE() { return getTokens(gParser.SINGLE_QUOTE); }
+		public List<TerminalNode> SINGLE_QUOTE() { return getTokens(MiniPascalParser.SINGLE_QUOTE); }
 		public TerminalNode SINGLE_QUOTE(int i) {
-			return getToken(gParser.SINGLE_QUOTE, i);
+			return getToken(MiniPascalParser.SINGLE_QUOTE, i);
 		}
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode NUM() { return getToken(gParser.NUM, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode NUM() { return getToken(MiniPascalParser.NUM, 0); }
 		public ExprCharContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprChar(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprChar(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1748,47 +1750,47 @@ public class gParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode PLUS() { return getToken(gParser.PLUS, 0); }
-		public TerminalNode MINUS() { return getToken(gParser.MINUS, 0); }
+		public TerminalNode PLUS() { return getToken(MiniPascalParser.PLUS, 0); }
+		public TerminalNode MINUS() { return getToken(MiniPascalParser.MINUS, 0); }
 		public ExprSumContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprSum(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprSum(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprParenContext extends ExpressionContext {
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
 		public ExprParenContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprParen(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprParen(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprBoolContext extends ExpressionContext {
-		public TerminalNode TRUE() { return getToken(gParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(gParser.FALSE, 0); }
+		public TerminalNode TRUE() { return getToken(MiniPascalParser.TRUE, 0); }
+		public TerminalNode FALSE() { return getToken(MiniPascalParser.FALSE, 0); }
 		public ExprBoolContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprBool(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprBool(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprIDContext extends ExpressionContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
 		public ExprIDContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprID(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprID(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1800,12 +1802,12 @@ public class gParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode AND() { return getToken(gParser.AND, 0); }
-		public TerminalNode OR() { return getToken(gParser.OR, 0); }
+		public TerminalNode AND() { return getToken(MiniPascalParser.AND, 0); }
+		public TerminalNode OR() { return getToken(MiniPascalParser.OR, 0); }
 		public ExprLogicContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprLogic(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprLogic(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1817,7 +1819,7 @@ public class gParser extends Parser {
 		public ExprArrayContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitExprArray(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitExprArray(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2068,23 +2070,23 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ArrayExpressionContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode LBRACK() { return getToken(gParser.LBRACK, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode LBRACK() { return getToken(MiniPascalParser.LBRACK, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode RBRACK() { return getToken(gParser.RBRACK, 0); }
-		public TerminalNode COMMA() { return getToken(gParser.COMMA, 0); }
+		public TerminalNode RBRACK() { return getToken(MiniPascalParser.RBRACK, 0); }
+		public TerminalNode COMMA() { return getToken(MiniPascalParser.COMMA, 0); }
 		public ArrayExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arrayExpression; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitArrayExpression(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitArrayExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2143,37 +2145,37 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class AssigmentVarContext extends AssigmentContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public AssigmentVarContext(AssigmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitAssigmentVar(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitAssigmentVar(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class AssigmentArrayContext extends AssigmentContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode LBRACK() { return getToken(gParser.LBRACK, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode LBRACK() { return getToken(MiniPascalParser.LBRACK, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode RBRACK() { return getToken(gParser.RBRACK, 0); }
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
-		public TerminalNode COMMA() { return getToken(gParser.COMMA, 0); }
+		public TerminalNode RBRACK() { return getToken(MiniPascalParser.RBRACK, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
+		public TerminalNode COMMA() { return getToken(MiniPascalParser.COMMA, 0); }
 		public AssigmentArrayContext(AssigmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitAssigmentArray(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitAssigmentArray(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2247,18 +2249,18 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ReadContext extends ParserRuleContext {
-		public TerminalNode READ() { return getToken(gParser.READ, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode READ() { return getToken(MiniPascalParser.READ, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public ReadContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_read; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitRead(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitRead(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2306,41 +2308,41 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class WriteNormalContext extends WriteContext {
-		public TerminalNode WRITE() { return getToken(gParser.WRITE, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
-		public TerminalNode CONST_VAL() { return getToken(gParser.CONST_VAL, 0); }
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
-		public TerminalNode COMMA() { return getToken(gParser.COMMA, 0); }
+		public TerminalNode WRITE() { return getToken(MiniPascalParser.WRITE, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
+		public TerminalNode CONST_VAL() { return getToken(MiniPascalParser.CONST_VAL, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
+		public TerminalNode COMMA() { return getToken(MiniPascalParser.COMMA, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode STR() { return getToken(gParser.STR, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
+		public TerminalNode STR() { return getToken(MiniPascalParser.STR, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
 		public WriteNormalContext(WriteContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitWriteNormal(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitWriteNormal(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class WriteLineContext extends WriteContext {
-		public TerminalNode WRITELN() { return getToken(gParser.WRITELN, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
-		public TerminalNode CONST_VAL() { return getToken(gParser.CONST_VAL, 0); }
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
-		public TerminalNode COMMA() { return getToken(gParser.COMMA, 0); }
+		public TerminalNode WRITELN() { return getToken(MiniPascalParser.WRITELN, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
+		public TerminalNode CONST_VAL() { return getToken(MiniPascalParser.CONST_VAL, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
+		public TerminalNode COMMA() { return getToken(MiniPascalParser.COMMA, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode STR() { return getToken(gParser.STR, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
+		public TerminalNode STR() { return getToken(MiniPascalParser.STR, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
 		public WriteLineContext(WriteContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitWriteLine(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitWriteLine(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2457,19 +2459,19 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Call_functionContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(gParser.COMMA); }
+		public List<TerminalNode> COMMA() { return getTokens(MiniPascalParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(gParser.COMMA, i);
+			return getToken(MiniPascalParser.COMMA, i);
 		}
 		public Call_functionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2477,7 +2479,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_call_function; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitCall_function(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitCall_function(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2550,11 +2552,11 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class IfStatContext extends If_blockContext {
-		public TerminalNode IF() { return getToken(gParser.IF, 0); }
+		public TerminalNode IF() { return getToken(MiniPascalParser.IF, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode THEN() { return getToken(gParser.THEN, 0); }
+		public TerminalNode THEN() { return getToken(MiniPascalParser.THEN, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -2570,21 +2572,21 @@ public class gParser extends Parser {
 		public IfStatContext(If_blockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitIfStat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitIfStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class IfBodyContext extends If_blockContext {
-		public TerminalNode IF() { return getToken(gParser.IF, 0); }
+		public TerminalNode IF() { return getToken(MiniPascalParser.IF, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode THEN() { return getToken(gParser.THEN, 0); }
+		public TerminalNode THEN() { return getToken(MiniPascalParser.THEN, 0); }
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public List<Else_if_blockContext> else_if_block() {
 			return getRuleContexts(Else_if_blockContext.class);
 		}
@@ -2597,7 +2599,7 @@ public class gParser extends Parser {
 		public IfBodyContext(If_blockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitIfBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitIfBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2721,36 +2723,36 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ElseIfStatContext extends Else_if_blockContext {
-		public TerminalNode ELSEIF() { return getToken(gParser.ELSEIF, 0); }
+		public TerminalNode ELSEIF() { return getToken(MiniPascalParser.ELSEIF, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode THEN() { return getToken(gParser.THEN, 0); }
+		public TerminalNode THEN() { return getToken(MiniPascalParser.THEN, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public ElseIfStatContext(Else_if_blockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitElseIfStat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitElseIfStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ElseIfBodyContext extends Else_if_blockContext {
-		public TerminalNode ELSEIF() { return getToken(gParser.ELSEIF, 0); }
+		public TerminalNode ELSEIF() { return getToken(MiniPascalParser.ELSEIF, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode THEN() { return getToken(gParser.THEN, 0); }
+		public TerminalNode THEN() { return getToken(MiniPascalParser.THEN, 0); }
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public ElseIfBodyContext(Else_if_blockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitElseIfBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitElseIfBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2821,28 +2823,28 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ElseStatContext extends Else_blockContext {
-		public TerminalNode ELSE() { return getToken(gParser.ELSE, 0); }
+		public TerminalNode ELSE() { return getToken(MiniPascalParser.ELSE, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public ElseStatContext(Else_blockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitElseStat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitElseStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ElseBodyContext extends Else_blockContext {
-		public TerminalNode ELSE() { return getToken(gParser.ELSE, 0); }
+		public TerminalNode ELSE() { return getToken(MiniPascalParser.ELSE, 0); }
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public ElseBodyContext(Else_blockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitElseBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitElseBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2905,95 +2907,95 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForDownToBodyContext extends For_loopContext {
-		public TerminalNode FOR() { return getToken(gParser.FOR, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
+		public TerminalNode FOR() { return getToken(MiniPascalParser.FOR, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode DOWNTO() { return getToken(gParser.DOWNTO, 0); }
-		public TerminalNode DO() { return getToken(gParser.DO, 0); }
+		public TerminalNode DOWNTO() { return getToken(MiniPascalParser.DOWNTO, 0); }
+		public TerminalNode DO() { return getToken(MiniPascalParser.DO, 0); }
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public ForDownToBodyContext(For_loopContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitForDownToBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitForDownToBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForToBodyContext extends For_loopContext {
-		public TerminalNode FOR() { return getToken(gParser.FOR, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
+		public TerminalNode FOR() { return getToken(MiniPascalParser.FOR, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode TO() { return getToken(gParser.TO, 0); }
-		public TerminalNode DO() { return getToken(gParser.DO, 0); }
+		public TerminalNode TO() { return getToken(MiniPascalParser.TO, 0); }
+		public TerminalNode DO() { return getToken(MiniPascalParser.DO, 0); }
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public ForToBodyContext(For_loopContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitForToBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitForToBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForToStatContext extends For_loopContext {
-		public TerminalNode FOR() { return getToken(gParser.FOR, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
+		public TerminalNode FOR() { return getToken(MiniPascalParser.FOR, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode TO() { return getToken(gParser.TO, 0); }
-		public TerminalNode DO() { return getToken(gParser.DO, 0); }
+		public TerminalNode TO() { return getToken(MiniPascalParser.TO, 0); }
+		public TerminalNode DO() { return getToken(MiniPascalParser.DO, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public ForToStatContext(For_loopContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitForToStat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitForToStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForDownToStatContext extends For_loopContext {
-		public TerminalNode FOR() { return getToken(gParser.FOR, 0); }
-		public TerminalNode ID() { return getToken(gParser.ID, 0); }
-		public TerminalNode ASSIGN() { return getToken(gParser.ASSIGN, 0); }
+		public TerminalNode FOR() { return getToken(MiniPascalParser.FOR, 0); }
+		public TerminalNode ID() { return getToken(MiniPascalParser.ID, 0); }
+		public TerminalNode ASSIGN() { return getToken(MiniPascalParser.ASSIGN, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode DOWNTO() { return getToken(gParser.DOWNTO, 0); }
-		public TerminalNode DO() { return getToken(gParser.DO, 0); }
+		public TerminalNode DOWNTO() { return getToken(MiniPascalParser.DOWNTO, 0); }
+		public TerminalNode DO() { return getToken(MiniPascalParser.DO, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public ForDownToStatContext(For_loopContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitForDownToStat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitForDownToStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3128,40 +3130,40 @@ public class gParser extends Parser {
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class WhileBodyContext extends While_loopContext {
-		public TerminalNode WHILE() { return getToken(gParser.WHILE, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
+		public TerminalNode WHILE() { return getToken(MiniPascalParser.WHILE, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode DO() { return getToken(gParser.DO, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode DO() { return getToken(MiniPascalParser.DO, 0); }
 		public BodyContext body() {
 			return getRuleContext(BodyContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public WhileBodyContext(While_loopContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitWhileBody(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitWhileBody(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class WhileStatContext extends While_loopContext {
-		public TerminalNode WHILE() { return getToken(gParser.WHILE, 0); }
-		public TerminalNode LPAREN() { return getToken(gParser.LPAREN, 0); }
+		public TerminalNode WHILE() { return getToken(MiniPascalParser.WHILE, 0); }
+		public TerminalNode LPAREN() { return getToken(MiniPascalParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode RPAREN() { return getToken(gParser.RPAREN, 0); }
-		public TerminalNode DO() { return getToken(gParser.DO, 0); }
+		public TerminalNode RPAREN() { return getToken(MiniPascalParser.RPAREN, 0); }
+		public TerminalNode DO() { return getToken(MiniPascalParser.DO, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public WhileStatContext(While_loopContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitWhileStat(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitWhileStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -3228,12 +3230,12 @@ public class gParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Repeat_loopContext extends ParserRuleContext {
-		public TerminalNode REPEAT() { return getToken(gParser.REPEAT, 0); }
-		public TerminalNode UNTIL() { return getToken(gParser.UNTIL, 0); }
+		public TerminalNode REPEAT() { return getToken(MiniPascalParser.REPEAT, 0); }
+		public TerminalNode UNTIL() { return getToken(MiniPascalParser.UNTIL, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode SEMI() { return getToken(gParser.SEMI, 0); }
+		public TerminalNode SEMI() { return getToken(MiniPascalParser.SEMI, 0); }
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
 		}
@@ -3246,7 +3248,7 @@ public class gParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_repeat_loop; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof gVisitor ) return ((gVisitor<? extends T>)visitor).visitRepeat_loop(this);
+			if ( visitor instanceof MiniPascalVisitor ) return ((MiniPascalVisitor<? extends T>)visitor).visitRepeat_loop(this);
 			else return visitor.visitChildren(this);
 		}
 	}

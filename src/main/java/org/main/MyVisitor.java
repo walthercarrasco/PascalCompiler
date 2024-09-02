@@ -1,19 +1,19 @@
 package org.main;
 
-public class MyVisitor extends gBaseVisitor<String> {
+public class MyVisitor extends MiniPascalBaseVisitor<String> {
     @Override
-    public String visitProgram_block(gParser.Program_blockContext ctx) {
+    public String visitProgram_block(MiniPascalParser.Program_blockContext ctx) {
         return ctx.PROGRAM().getText() + " " + ctx.ID().getText() + ctx.SEMI().getText() + "/n" + this.visitSrc(ctx.src());
     }
 
     @Override
-    public String visitSrc(gParser.SrcContext ctx) {
+    public String visitSrc(MiniPascalParser.SrcContext ctx) {
         return this.visitDeclaration(ctx.declaration()) + "/n" + this.visitBody(ctx.body()) + ctx.DOT().getText();
     }
 
     //Variable Declaration
     @Override
-    public String visitDeclaration(gParser.DeclarationContext ctx) {
+    public String visitDeclaration(MiniPascalParser.DeclarationContext ctx) {
         String str = "";
 
         if(ctx.var_block() != null)
@@ -30,7 +30,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitVar_block(gParser.Var_blockContext ctx) {
+    public String visitVar_block(MiniPascalParser.Var_blockContext ctx) {
         String str = ctx.VAR().getText() + "/n" + ctx.variables(0).getText();
 
         if(ctx.variables().size() > 1)
@@ -45,32 +45,32 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitVariable_declaration(gParser.Variable_declarationContext ctx) {
+    public String visitVariable_declaration(MiniPascalParser.Variable_declarationContext ctx) {
         return this.visitVarNames(ctx.varNames()) + ctx.COLON().getText() + ctx.type().getText() + ctx.SEMI().getText();
     }
 
     @Override
-    public String visitArray_declaration(gParser.Array_declarationContext ctx) {
+    public String visitArray_declaration(MiniPascalParser.Array_declarationContext ctx) {
         return ctx.ID().getText() + ctx.COLON().getText() + this.visitArray(ctx.array()) + ctx.SEMI().getText();
     }
 
     @Override
-    public String visitConstant_declaration(gParser.Constant_declarationContext ctx) {
+    public String visitConstant_declaration(MiniPascalParser.Constant_declarationContext ctx) {
         return this.visitVarNames(ctx.varNames()) + ctx.constType().getText() + ctx.SEMI().getText();
     }
 
     @Override
-    public String visitConstant_initialization(gParser.Constant_initializationContext ctx) {
+    public String visitConstant_initialization(MiniPascalParser.Constant_initializationContext ctx) {
         return ctx.ID().getText() + ctx.COLON().getText() + ctx.constType().getText() + ctx.ASSIGN().getText() + ctx.CONST_VAL().getText() + ctx.SEMI().getText();
     }
 
     @Override
-    public String visitVariable_initialization(gParser.Variable_initializationContext ctx) {
+    public String visitVariable_initialization(MiniPascalParser.Variable_initializationContext ctx) {
         return ctx.assigment().getText();
     }
 
     @Override
-    public String visitVarNames(gParser.VarNamesContext ctx) {
+    public String visitVarNames(MiniPascalParser.VarNamesContext ctx) {
         String str = ctx.ID(0).getText();
 
         if(ctx.ID().size() > 1)
@@ -85,7 +85,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitFunction_block(gParser.Function_blockContext ctx) {
+    public String visitFunction_block(MiniPascalParser.Function_blockContext ctx) {
         String str = "";
 
         for(int i = 0; i < ctx.function().size(); i++)
@@ -98,42 +98,42 @@ public class MyVisitor extends gBaseVisitor<String> {
 
     //Variable Types
     @Override
-    public String visitArray_Type(gParser.Array_TypeContext ctx) {
+    public String visitArray_Type(MiniPascalParser.Array_TypeContext ctx) {
         return ctx.arrayType().getText();
     }
 
     @Override
-    public String visitString_Type(gParser.String_TypeContext ctx) {
+    public String visitString_Type(MiniPascalParser.String_TypeContext ctx) {
         return ctx.STRING().getText();
     }
 
     @Override
-    public String visitINT(gParser.INTContext ctx) {
+    public String visitINT(MiniPascalParser.INTContext ctx) {
         return ctx.INTEGER().getText();
     }
 
     @Override
-    public String visitBOOL(gParser.BOOLContext ctx) {
+    public String visitBOOL(MiniPascalParser.BOOLContext ctx) {
         return ctx.BOOLEAN().getText();
     }
 
     @Override
-    public String visitCHAR(gParser.CHARContext ctx) {
+    public String visitCHAR(MiniPascalParser.CHARContext ctx) {
         return ctx.CHAR().getText();
     }
 
     @Override
-    public String visitCONSTCH(gParser.CONSTCHContext ctx) {
+    public String visitCONSTCH(MiniPascalParser.CONSTCHContext ctx) {
         return ctx.CONSTCHAR().getText();
     }
 
     @Override
-    public String visitCONSTSTR(gParser.CONSTSTRContext ctx) {
+    public String visitCONSTSTR(MiniPascalParser.CONSTSTRContext ctx) {
         return ctx.CONSTSTR().getText();
     }
 
     @Override
-    public String visitArray(gParser.ArrayContext ctx) {
+    public String visitArray(MiniPascalParser.ArrayContext ctx) {
         String str = ctx.ARRAY().getText() + ctx.LBRACK().getText() + this.visitRange(ctx.range(0));
 
         if(ctx.COMMA() != null)
@@ -147,13 +147,13 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitRange(gParser.RangeContext ctx) {
+    public String visitRange(MiniPascalParser.RangeContext ctx) {
         return ctx.NUM(0).getText() + ctx.DOTDOT().getText() + ctx.NUM(1).getText();
     }
 
     //Functions
     @Override
-    public String visitFunction_variables_normal(gParser.Function_variables_normalContext ctx) {
+    public String visitFunction_variables_normal(MiniPascalParser.Function_variables_normalContext ctx) {
         String str = ctx.ID(0).getText();
 
         if(ctx.COMMA() != null)
@@ -170,7 +170,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitFunction_variables_array(gParser.Function_variables_arrayContext ctx) {
+    public String visitFunction_variables_array(MiniPascalParser.Function_variables_arrayContext ctx) {
         String str = ctx.ID(0).getText();
 
         if(ctx.COMMA() != null)
@@ -187,7 +187,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitFunction_variables_const(gParser.Function_variables_constContext ctx) {
+    public String visitFunction_variables_const(MiniPascalParser.Function_variables_constContext ctx) {
         String str = ctx.ID(0).getText();
 
         if(ctx.COMMA() != null)
@@ -204,7 +204,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitFunction(gParser.FunctionContext ctx) {
+    public String visitFunction(MiniPascalParser.FunctionContext ctx) {
         String str = ctx.FUNCTION().getText() + ctx.ID().getText() + ctx.LPAREN().getText();
 
         if(ctx.function_variables() != null)
@@ -234,7 +234,7 @@ public class MyVisitor extends gBaseVisitor<String> {
 
     //Body
     @Override
-    public String visitBody(gParser.BodyContext ctx) {
+    public String visitBody(MiniPascalParser.BodyContext ctx) {
         String str;
         str = ctx.BEGIN().getText() + "/n";
         for (int i = 0; i < ctx.statement().size(); i++){
@@ -245,63 +245,63 @@ public class MyVisitor extends gBaseVisitor<String> {
 
     //Statement Types
     @Override
-    public String visitSimple_statement(gParser.Simple_statementContext ctx) {
+    public String visitSimple_statement(MiniPascalParser.Simple_statementContext ctx) {
         return ctx.simple().getText() + "/n";
     }
 
     @Override
-    public String visitNested_statement(gParser.Nested_statementContext ctx) {
+    public String visitNested_statement(MiniPascalParser.Nested_statementContext ctx) {
         return ctx.nested().getText() + "/n";
     }
 
     @Override
-    public String visitSimpleAssigment(gParser.SimpleAssigmentContext ctx) {
+    public String visitSimpleAssigment(MiniPascalParser.SimpleAssigmentContext ctx) {
         return ctx.assigment().getText() + "/n";
     }
 
     @Override
-    public String visitSimpleRead(gParser.SimpleReadContext ctx) {
+    public String visitSimpleRead(MiniPascalParser.SimpleReadContext ctx) {
         return this.visitRead(ctx.read()) + "/n";
     }
 
     @Override
-    public String visitSimpleWrite(gParser.SimpleWriteContext ctx) {
+    public String visitSimpleWrite(MiniPascalParser.SimpleWriteContext ctx) {
         return ctx.write().getText() + "/n";
     }
 
     @Override
-    public String visitSimpleCallFunction(gParser.SimpleCallFunctionContext ctx) {
+    public String visitSimpleCallFunction(MiniPascalParser.SimpleCallFunctionContext ctx) {
         return this.visitCall_function(ctx.call_function()) + "/n";
     }
 
     @Override
-    public String visitNestedIf(gParser.NestedIfContext ctx) {
+    public String visitNestedIf(MiniPascalParser.NestedIfContext ctx) {
         return ctx.if_block().getText() + "/n";
     }
 
     @Override
-    public String visitNestedWhile(gParser.NestedWhileContext ctx) {
+    public String visitNestedWhile(MiniPascalParser.NestedWhileContext ctx) {
         return ctx.while_loop().getText() + "/n";
     }
 
     @Override
-    public String visitNestedFor(gParser.NestedForContext ctx) {
+    public String visitNestedFor(MiniPascalParser.NestedForContext ctx) {
         return ctx.for_loop().getText() + "/n";
     }
 
     @Override
-    public String visitNestedRepeat(gParser.NestedRepeatContext ctx) {
+    public String visitNestedRepeat(MiniPascalParser.NestedRepeatContext ctx) {
         return this.visitRepeat_loop(ctx.repeat_loop()) + "/n";
     }
 
     //Expressions to assign or compare
     @Override
-    public String visitExprParen(gParser.ExprParenContext ctx) {
+    public String visitExprParen(MiniPascalParser.ExprParenContext ctx) {
         return ctx.LPAREN().getText() + ctx.expression().getText() + ctx.RPAREN().getText();
     }
 
     @Override
-    public String visitExprMult(gParser.ExprMultContext ctx) {
+    public String visitExprMult(MiniPascalParser.ExprMultContext ctx) {
         String str = ctx.expression(0).getText();
 
         if (ctx.ASTERISK()!= null)
@@ -326,7 +326,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitExprSum(gParser.ExprSumContext ctx) {
+    public String visitExprSum(MiniPascalParser.ExprSumContext ctx) {
         String str = ctx.expression(0).getText();
 
         if (ctx.PLUS()!= null)
@@ -343,7 +343,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitExprComp(gParser.ExprCompContext ctx) {
+    public String visitExprComp(MiniPascalParser.ExprCompContext ctx) {
         String str = ctx.expression(0).getText();
 
         if (ctx.EQUAL()!= null)
@@ -376,7 +376,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitExprLogic(gParser.ExprLogicContext ctx) {
+    public String visitExprLogic(MiniPascalParser.ExprLogicContext ctx) {
         String str = ctx.expression(0).getText();
         if (ctx.AND()!= null)
         {
@@ -392,17 +392,17 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitExprNot(gParser.ExprNotContext ctx) {
+    public String visitExprNot(MiniPascalParser.ExprNotContext ctx) {
         return ctx.NOT().getText() + ctx.expression().getText();
     }
 
     @Override
-    public String visitExprNeg(gParser.ExprNegContext ctx) {
+    public String visitExprNeg(MiniPascalParser.ExprNegContext ctx) {
         return ctx.MINUS().getText() + ctx.expression().getText();
     }
 
     @Override
-    public String visitExprChar(gParser.ExprCharContext ctx) {
+    public String visitExprChar(MiniPascalParser.ExprCharContext ctx) {
         String str = ctx.SINGLE_QUOTE(0).getText();
 
         if(ctx.ID() != null)
@@ -419,12 +419,12 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitExprStr(gParser.ExprStrContext ctx) {
+    public String visitExprStr(MiniPascalParser.ExprStrContext ctx) {
         return ctx.STR().getText();
     }
 
     @Override
-    public String visitExprBool(gParser.ExprBoolContext ctx) {
+    public String visitExprBool(MiniPascalParser.ExprBoolContext ctx) {
         if(ctx.TRUE() != null)
         {
             return ctx.TRUE().getText();
@@ -434,22 +434,22 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitExprInt(gParser.ExprIntContext ctx) {
+    public String visitExprInt(MiniPascalParser.ExprIntContext ctx) {
         return ctx.NUM().getText();
     }
 
     @Override
-    public String visitExprID(gParser.ExprIDContext ctx) {
+    public String visitExprID(MiniPascalParser.ExprIDContext ctx) {
         return ctx.ID().getText();
     }
 
     @Override
-    public String visitExprArray(gParser.ExprArrayContext ctx) {
+    public String visitExprArray(MiniPascalParser.ExprArrayContext ctx) {
         return this.visitArrayExpression(ctx.arrayExpression());
     }
 
     @Override
-    public String visitArrayExpression(gParser.ArrayExpressionContext ctx) {
+    public String visitArrayExpression(MiniPascalParser.ArrayExpressionContext ctx) {
         String str = ctx.ID().getText() + ctx.LBRACK().getText() + ctx.expression(0).getText();
 
         if(ctx.COMMA() != null)
@@ -464,12 +464,12 @@ public class MyVisitor extends gBaseVisitor<String> {
 
     //Simple Statements
     @Override
-    public String visitAssigmentVar(gParser.AssigmentVarContext ctx) {
+    public String visitAssigmentVar(MiniPascalParser.AssigmentVarContext ctx) {
         return ctx.ID().getText() + ctx.ASSIGN().getText() + ctx.expression().getText() + ctx.SEMI().getText();
     }
 
     @Override
-    public String visitAssigmentArray(gParser.AssigmentArrayContext ctx) {
+    public String visitAssigmentArray(MiniPascalParser.AssigmentArrayContext ctx) {
         String str = ctx.ID().getText() + ctx.LBRACK().getText() + ctx.expression(0).getText();
 
         if(ctx.COMMA() != null)
@@ -482,12 +482,12 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitRead(gParser.ReadContext ctx) {
+    public String visitRead(MiniPascalParser.ReadContext ctx) {
         return ctx.READ().getText() + ctx.LPAREN().getText() +ctx.ID().getText() + ctx.RPAREN().getText() +ctx.SEMI().getText();
     }
 
     @Override
-    public String visitWriteNormal(gParser.WriteNormalContext ctx) {
+    public String visitWriteNormal(MiniPascalParser.WriteNormalContext ctx) {
         String str =  ctx.WRITE().getText() + ctx.LPAREN().getText() + ctx.CONST_VAL().getText();
 
         if(ctx.COMMA() != null)
@@ -514,7 +514,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitWriteLine(gParser.WriteLineContext ctx) {
+    public String visitWriteLine(MiniPascalParser.WriteLineContext ctx) {
         String str =  ctx.WRITELN().getText() + ctx.LPAREN().getText() + ctx.CONST_VAL().getText();
 
         if(ctx.COMMA() != null)
@@ -541,7 +541,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitCall_function(gParser.Call_functionContext ctx) {
+    public String visitCall_function(MiniPascalParser.Call_functionContext ctx) {
         String str = ctx.ID().getText() + ctx.LPAREN().getText();
 
         if(ctx.expression() != null)
@@ -564,7 +564,7 @@ public class MyVisitor extends gBaseVisitor<String> {
 
     //Nested Statements
     @Override
-    public String visitIfBody(gParser.IfBodyContext ctx) {
+    public String visitIfBody(MiniPascalParser.IfBodyContext ctx) {
         String str = ctx.IF().getText() + ctx.expression().getText() + ctx.THEN().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
 
         if(ctx.else_if_block() != null)
@@ -584,7 +584,7 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitIfStat(gParser.IfStatContext ctx) {
+    public String visitIfStat(MiniPascalParser.IfStatContext ctx) {
         String str =  ctx.IF().getText() + ctx.expression().getText() + ctx.THEN().getText() + "/n" + ctx.statement().getText();
 
         if(ctx.else_if_block() != null)
@@ -604,57 +604,57 @@ public class MyVisitor extends gBaseVisitor<String> {
     }
 
     @Override
-    public String visitElseIfBody(gParser.ElseIfBodyContext ctx) {
+    public String visitElseIfBody(MiniPascalParser.ElseIfBodyContext ctx) {
         return ctx.ELSEIF().getText() + ctx.expression().getText() + ctx.THEN().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
     }
 
     @Override
-    public String visitElseIfStat(gParser.ElseIfStatContext ctx) {
+    public String visitElseIfStat(MiniPascalParser.ElseIfStatContext ctx) {
         return ctx.ELSEIF().getText() + ctx.expression().getText() + ctx.THEN().getText() + "/n" + ctx.statement().getText();
     }
 
     @Override
-    public String visitElseBody(gParser.ElseBodyContext ctx) {
+    public String visitElseBody(MiniPascalParser.ElseBodyContext ctx) {
         return ctx.ELSE().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
     }
 
     @Override
-    public String visitElseStat(gParser.ElseStatContext ctx) {
+    public String visitElseStat(MiniPascalParser.ElseStatContext ctx) {
         return ctx.ELSE().getText() + "/n" + ctx.statement().getText();
     }
 
     @Override
-    public String visitForToBody(gParser.ForToBodyContext ctx) {
+    public String visitForToBody(MiniPascalParser.ForToBodyContext ctx) {
         return ctx.FOR().getText() + ctx.ID().getText() + ctx.ASSIGN().getText() + ctx.expression(0).getText() + ctx.TO().getText() + ctx.expression(1).getText() + ctx.DO().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
     }
 
     @Override
-    public String visitForDownToBody(gParser.ForDownToBodyContext ctx) {
+    public String visitForDownToBody(MiniPascalParser.ForDownToBodyContext ctx) {
         return ctx.FOR().getText() + ctx.ID().getText() + ctx.ASSIGN().getText() + ctx.expression(0).getText() + ctx.DOWNTO().getText() + ctx.expression(1).getText() + ctx.DO().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
     }
 
     @Override
-    public String visitForToStat(gParser.ForToStatContext ctx) {
+    public String visitForToStat(MiniPascalParser.ForToStatContext ctx) {
         return ctx.FOR().getText() + ctx.ID().getText() + ctx.ASSIGN().getText() + ctx.expression(0).getText() + ctx.TO().getText() + ctx.expression(1).getText() + ctx.DO().getText() + "/n" + ctx.statement().getText();
     }
 
     @Override
-    public String visitForDownToStat(gParser.ForDownToStatContext ctx) {
+    public String visitForDownToStat(MiniPascalParser.ForDownToStatContext ctx) {
         return ctx.FOR().getText() + ctx.ID().getText() + ctx.ASSIGN().getText() + ctx.expression(0).getText() + ctx.DOWNTO().getText() + ctx.expression(1).getText() + ctx.DO().getText() + "/n" + ctx.statement().getText();
     }
 
     @Override
-    public String visitWhileBody(gParser.WhileBodyContext ctx) {
+    public String visitWhileBody(MiniPascalParser.WhileBodyContext ctx) {
         return ctx.WHILE().getText() + ctx.LPAREN().getText() + ctx.expression().getText() + ctx.RPAREN().getText() + ctx.DO().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
     }
 
     @Override
-    public String visitWhileStat(gParser.WhileStatContext ctx) {
+    public String visitWhileStat(MiniPascalParser.WhileStatContext ctx) {
         return ctx.WHILE().getText() + ctx.LPAREN().getText() + ctx.expression().getText() + ctx.RPAREN().getText() + ctx.DO().getText() + "/n" + ctx.statement().getText();
     }
 
     @Override
-    public String visitRepeat_loop(gParser.Repeat_loopContext ctx) {
+    public String visitRepeat_loop(MiniPascalParser.Repeat_loopContext ctx) {
         String str =  ctx.REPEAT().getText() + "/n";
 
         for(int i = 0; i < ctx.statement().size(); i++)

@@ -1,4 +1,4 @@
-grammar g;
+grammar MiniPascal;
 
 options {
     caseInsensitive = true;

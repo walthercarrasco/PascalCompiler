@@ -1,4 +1,6 @@
-// Generated from src/grammar/g.g4 by ANTLR 4.13.2
+package org.main;
+
+// Generated from src/grammar/MiniPascal.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +11,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class gLexer extends Lexer {
+public class MiniPascalLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -107,13 +109,13 @@ public class gLexer extends Lexer {
 	}
 
 
-	public gLexer(CharStream input) {
+	public MiniPascalLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "g.g4"; }
+	public String getGrammarFileName() { return "MiniPascal.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
