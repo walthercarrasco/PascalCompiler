@@ -43,7 +43,7 @@ constType : CONSTCHAR   #CONSTCH
           ;
 
 array : ARRAY LBRACK range (COMMA range)? RBRACK OF arrayType;
-range : NUM DOTDOT NUM;
+range : NUM DOT DOT NUM;
 //-------------Variable Types
 
 //-------------Functions
@@ -213,7 +213,6 @@ GT : '>';
 GE : '>=';
 ASSIGN : ':=';
 DOT : '.';
-DOTDOT : '..';
 SINGLE_QUOTE : '\'';
 //-------------Symbols
 

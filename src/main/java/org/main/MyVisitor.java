@@ -87,11 +87,11 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
     @Override
     public String visitFunction_block(MiniPascalParser.Function_blockContext ctx) {
         String str = "";
-
-        for(int i = 0; i < ctx.function().size(); i++)
-        {
-            str += this.visitFunction(ctx.function(i));
-        }
+        if(ctx.function().size()>1)
+            for(int i = 0; i < ctx.function().size(); i++)
+            {
+                str += this.visitFunction(ctx.function(i));
+            }
 
         return str;
     }
@@ -207,7 +207,7 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
     public String visitFunction(MiniPascalParser.FunctionContext ctx) {
         String str = ctx.FUNCTION().getText() + ctx.ID().getText() + ctx.LPAREN().getText();
 
-        if(ctx.function_variables() != null)
+        if(ctx.function_variables().size()>0)
         {
             str += ctx.function_variables(0).getText();
 
