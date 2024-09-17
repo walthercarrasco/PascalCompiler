@@ -148,7 +148,7 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
 
     @Override
     public String visitRange(MiniPascalParser.RangeContext ctx) {
-        return ctx.NUM(0).getText() + ctx.DOTDOT().getText() + ctx.NUM(1).getText();
+        return ctx.NUM(0).getText() + ctx.DOT(0).getText() + ctx.DOT(1).getText() + ctx.NUM(1).getText();
     }
 
     //Functions

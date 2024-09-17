@@ -49,7 +49,7 @@ public class Main {
                 "writeln('%d',arreglo[cont]); \n" +
                 "End; \n" +
                 "writeln('Gracias por usar Pascal!');\n" +
-                "end_"));
+                "end.."));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MiniPascalParser parser = new MiniPascalParser(tokens);
         parser.removeErrorListeners();

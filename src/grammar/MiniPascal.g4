@@ -9,7 +9,7 @@ PENDIENTES
 FUNCION(FUNCION)?
 */
 program_block: PROGRAM ID SEMI src ;
-src : declaration body DOT;
+src : declaration body DOT EOF;
 //-----------------------------------------------------Variable declaration
 
 declaration : var_block? function_block?;
