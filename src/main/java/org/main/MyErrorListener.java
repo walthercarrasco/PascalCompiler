@@ -10,6 +10,11 @@ public class MyErrorListener extends org.antlr.v4.runtime.BaseErrorListener {
 
     public record MyError(String errorMsg, int line, int charPositionInLine) {}
     public static ArrayList<MyError> errors = new ArrayList<>();
+    public boolean isLexer;
+
+    public MyErrorListener(boolean isLexer){
+        this.isLexer = isLexer;
+    }
 
     @Override
     public void syntaxError(Recognizer<?, ?> recognizer,
@@ -25,7 +30,8 @@ public class MyErrorListener extends org.antlr.v4.runtime.BaseErrorListener {
         msg = msg.replace("mismatched input","entrada incorrecta");
         msg = msg.replace("at","en");
         String errormsg = "Error en la línea " + line + ", columna " + charPositionInLine + ": " + msg;
-        errormsg += "\n" + underlineError(recognizer,(Token)offendingSymbol, line, charPositionInLine);
+        if(!isLexer)
+            errormsg += "\n" + underlineError(recognizer,(Token)offendingSymbol, line, charPositionInLine);
         errors.add(new MyError(errormsg, line, charPositionInLine));
     }
 

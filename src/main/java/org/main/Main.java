@@ -36,10 +36,12 @@ public class Main {
         }
 
         MiniPascalLexer lexer = new MiniPascalLexer(charStream);
+        lexer.removeErrorListeners();
+        lexer.addErrorListener(new MyErrorListener(true));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MiniPascalParser parser = new MiniPascalParser(tokens);
         parser.removeErrorListeners();
-        parser.addErrorListener(new MyErrorListener());
+        parser.addErrorListener(new MyErrorListener(false));
         ParseTree tree = parser.program_block();
         MyErrorListener.errors.sort(Comparator.comparingInt(MyErrorListener.MyError::line));
         MyErrorListener.errors.forEach(error -> {
@@ -47,6 +49,6 @@ public class Main {
         });
         MyVisitor visitor = new MyVisitor();
         String str = visitor.visit(tree);
-        System.out.println(ANSI_RESET + str);
+        //System.out.println(ANSI_RESET + str);
     }
 }
