@@ -449,6 +449,11 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
     }
 
     @Override
+    public String visitExprCallFunction(MiniPascalParser.ExprCallFunctionContext ctx) {
+        return this.visitCall_function(ctx.call_function());
+    }
+
+    @Override
     public String visitArrayExpression(MiniPascalParser.ArrayExpressionContext ctx) {
         String str = ctx.ID().getText() + ctx.LBRACK().getText() + ctx.expression(0).getText();
 
@@ -483,7 +488,16 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
 
     @Override
     public String visitRead(MiniPascalParser.ReadContext ctx) {
-        return ctx.READ().getText() + ctx.LPAREN().getText() +ctx.ID().getText() + ctx.RPAREN().getText() +ctx.SEMI().getText();
+        String str = ctx.READ().getText() + ctx.LPAREN().getText();
+        if(ctx.ID()!=null){
+            str += ctx.ID().getText();
+        }
+        else if(ctx.arrayExpression()!=null){
+            str += this.visitArrayExpression(ctx.arrayExpression());
+        }
+        str =ctx.RPAREN().getText() +ctx.SEMI().getText();
+
+        return str;
     }
 
     @Override
@@ -645,12 +659,12 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
 
     @Override
     public String visitWhileBody(MiniPascalParser.WhileBodyContext ctx) {
-        return ctx.WHILE().getText() + ctx.LPAREN().getText() + ctx.expression().getText() + ctx.RPAREN().getText() + ctx.DO().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
+        return ctx.WHILE().getText() + ctx.expression().getText() + ctx.DO().getText() + "/n" + this.visitBody(ctx.body()) + ctx.SEMI();
     }
 
     @Override
     public String visitWhileStat(MiniPascalParser.WhileStatContext ctx) {
-        return ctx.WHILE().getText() + ctx.LPAREN().getText() + ctx.expression().getText() + ctx.RPAREN().getText() + ctx.DO().getText() + "/n" + ctx.statement().getText();
+        return ctx.WHILE().getText() + ctx.expression().getText() + ctx.DO().getText() + "/n" + ctx.statement().getText();
     }
 
     @Override

@@ -98,6 +98,7 @@ expression : LPAREN expression RPAREN                                           
            | NUM                                                                #exprInt        // Integer
            | ID                                                                 #exprID         // ID
            | arrayExpression                                                    #exprArray      // Array
+           | call_function                                                      #exprCallFunction
            ;
 
 arrayExpression : ID LBRACK expression (COMMA expression)? RBRACK;
@@ -111,13 +112,13 @@ assigment : ID ASSIGN expression SEMI                                           
           | ID LBRACK expression (COMMA expression)? RBRACK ASSIGN expression SEMI  #assigmentArray
           ;
 
-read : READ LPAREN ID RPAREN SEMI;
+read : READ LPAREN (ID | arrayExpression) RPAREN SEMI;
 
 write : WRITE LPAREN CONST_VAL (COMMA expression|STR|ID )? RPAREN SEMI      #writeNormal
       | WRITELN LPAREN  CONST_VAL (COMMA expression|STR|ID)? RPAREN SEMI    #writeLine
       ;
 
-call_function : ID LPAREN (expression (COMMA expression)*)? RPAREN SEMI;
+call_function : ID LPAREN (expression (COMMA expression)*)? RPAREN SEMI?;
 
 //-------------Simple statements
 
@@ -147,8 +148,8 @@ for_loop : FOR ID ASSIGN expression TO expression DO (body SEMI)           #forT
          ;
 
 //while
-while_loop : WHILE LPAREN expression RPAREN DO (body SEMI)       #whileBody     //while with body
-           | WHILE LPAREN expression RPAREN DO statement         #whileStat     //while with statement
+while_loop : WHILE expression DO (body SEMI)       #whileBody     //while with body
+           | WHILE expression DO statement         #whileStat     //while with statement
            ;
 //repeat
 repeat_loop : REPEAT statement+ UNTIL expression SEMI;
