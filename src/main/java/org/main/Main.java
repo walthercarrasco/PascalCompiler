@@ -49,6 +49,6 @@ public class Main {
         });
         MyVisitor visitor = new MyVisitor();
         String str = visitor.visit(tree);
-        //System.out.println(ANSI_RESET + str);
+        //System.out.println(str);
     }
 }
