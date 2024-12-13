@@ -92,7 +92,7 @@ expression : LPAREN expression RPAREN                                           
            | expression (AND | OR) expression                                   #exprLogic      // Logical
            | NOT expression                                                     #exprNot        // Not
            | MINUS expression                                                   #exprNeg        // Negative
-           | (SINGLE_QUOTE (ID | NUM) SINGLE_QUOTE)                             #exprChar       // Char
+           | CHR                                                                #exprChar       // Char
            | STR                                                                #exprStr        // String
            | (TRUE | FALSE)                                                     #exprBool       // Boolean
            | NUM                                                                #exprInt        // Integer
@@ -114,8 +114,8 @@ assigment : ID ASSIGN expression SEMI                                           
 
 read : READ LPAREN (ID | arrayExpression) RPAREN SEMI;
 
-write : WRITE LPAREN CONST_VAL (COMMA expression|STR|ID )? RPAREN SEMI      #writeNormal
-      | WRITELN LPAREN  CONST_VAL (COMMA expression|STR|ID)? RPAREN SEMI    #writeLine
+write : WRITE LPAREN STR (COMMA (ID | arrayExpression))? RPAREN SEMI       #writeNormal
+      | WRITELN LPAREN STR (COMMA (ID | arrayExpression))? RPAREN SEMI    #writeLine
       ;
 
 call_function : ID LPAREN (expression (COMMA expression)*)? RPAREN SEMI?;
@@ -226,6 +226,7 @@ NUM: [0-9]+;
 
 WS      : (' ' | '\t' | '\n' | '\r')+ -> skip; // Whitespace
 STR     : '"' (ESC | ~["\\\r\n\t])* '"' ; // Excludes \r, \n, \t from the string content
+CHR     : '\'' (ESC | ~['\\\r\n\t])* '\'' ; // Excludes \r, \n, \t from the character content
 ESC     : '\\"'  | '\\\\' | '\\t' | '\\n' | '\\r'; // Escaped characters
 CONST_VAL : '\'' (ESC | ~['\\])+ '\'' ;
 IGNORE_BLOCK : '{' .*? '}' -> skip ; // Ignore comments

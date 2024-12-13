@@ -1,5 +1,4 @@
-package org.main;
-// Generated from src/grammar/MiniPascal.g4 by ANTLR 4.13.2
+package MiniPascalClasses;// Generated from src/grammar/MiniPascal.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**

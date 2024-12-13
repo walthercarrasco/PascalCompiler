@@ -1,13 +1,34 @@
 package org.main;
 
+import ErrorClasses.MyErrorListener;
+import ErrorClasses.SemanticErrorCollector;
+
+import IntermediateRepresentation.TACGenerator;
+import IntermediateRepresentation.TACInstruction;
+import IntermediateRepresentation.TACInstructionCollector;
+import IntermediateRepresentation.TACOptimizer;
+import SematicAnalisis.DeclarationCollector;
+
+import SematicAnalisis.SemanticAnalizer;
+import Symbols.SymbolTable;
+
+import MiniPascalClasses.MiniPascalLexer;
+import MiniPascalClasses.MiniPascalParser;
+
+
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+
+import java.nio.file.Files;
 import java.util.Comparator;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
+import java.util.List;
+import java.util.stream.Stream;
 import javax.swing.JFileChooser;
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
+
 
 
 public class Main {
@@ -15,6 +36,7 @@ public class Main {
     public static void main(String[] args) {
         String input = "";
         File fichero = null;
+        Stream<String> lineStream = null;
         try {
             JFileChooser filechooser = new JFileChooser("./");
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo de Texto", "txt");
@@ -29,6 +51,7 @@ public class Main {
         }
         CharStream charStream = null;
         try{
+            lineStream = Files.lines(fichero.toPath());
             charStream = fromFileName(input);
         }catch (Exception e){
             System.err.println("No se ha seleccionado un archivo");
@@ -49,6 +72,55 @@ public class Main {
         });
         MyVisitor visitor = new MyVisitor();
         String str = visitor.visit(tree);
-        //System.out.println(str);
+
+        if(MyErrorListener.errors.size() == 0) {
+            SymbolTable symbolTable = new SymbolTable();
+            SemanticErrorCollector errorCollector = new SemanticErrorCollector();
+            DeclarationCollector declarationCollector = new DeclarationCollector(symbolTable, errorCollector);
+            declarationCollector.visit(tree);
+            System.out.println("Declaration Collector Errors: " + errorCollector.getErrors().size());
+
+            SemanticAnalizer semanticAnalizer = new SemanticAnalizer(symbolTable, errorCollector);
+            semanticAnalizer.visit(tree);
+            if(semanticAnalizer.getErrorCollector().getErrorsCount() == 0){
+                System.out.println("No Semantic Analysis Errors");
+                TACInstructionCollector tacInstructionCollector = new TACInstructionCollector();
+                TACGenerator tacGenerator = new TACGenerator(tacInstructionCollector, symbolTable);
+                tacGenerator.visit(tree);
+                System.out.println("Intermediate Representation:");
+                tacGenerator.printInstructions();
+                tacGenerator.printTACInstructions();
+
+                System.out.println();
+                System.out.println("Optimized Intermediate Representation:");
+                TACOptimizer optimizer = new TACOptimizer(tacInstructionCollector.getInstructions());
+                List<TACInstruction> optimizedInstructions = optimizer.optimize();
+                for (TACInstruction instruction : optimizedInstructions) {
+                    System.out.println(instruction.toString());
+                }
+
+
+
+            } else {
+                String [] lines = lineStream.toArray(String[]::new);
+
+                System.out.println("Semantic Analysis Errors: " + errorCollector.getErrors().size());
+                errorCollector.getErrors().forEach(error -> {
+                    String send = error.toString() + "\n";
+                    send += lines[error.getLine() - 1] + "\n";
+                    send += underline2(error.getColumn()) + "\n";
+                    System.err.println(send);
+                });
+            }
+        }
+    }
+
+    public static String underline2(int charPositionInLine) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < charPositionInLine; i++) {
+            sb.append(" ");
+        }
+        sb.append("^");
+        return sb.toString();
     }
 }

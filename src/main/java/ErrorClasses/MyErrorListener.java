@@ -1,4 +1,4 @@
-package org.main;
+package ErrorClasses;
 
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Recognizer;

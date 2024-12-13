@@ -1,0 +1,110 @@
+-----DeclarationCollector
+0. Declare all variables that appear in the beginning DONE
+1. Make sure variables are not declared twice DONE
+
+-----SemanticAnalizer
+2. Make sure all variables are initialized before being used (normal and function)
+3. Make sure when calling of functions all variables that are sent are of the correct type, and the correct amount of variables are sent
+4. When initializing a variable with a function make sure return type is the same as variable type
+5. Make sure read types are not boolean
+6. Make sure first parameter of write is conststr, make sure second variable (if exists) is not boolean
+7. Make sure when using arrays that the initialization values are correct
+8. Make sure in fors that the value to count down is either a new variable or an already declared int
+9. Make sure variables inside ifs and whiles are already initialized
+
+
+-----Pendientes
+FIx method determineAssignType to return the type of the variable, line 224 (continue) DONE
+Check Boolean, found boolean DONE
+CHeck g4 to put in separate places the equals and notequal
+
+----Things I dont want to implement
+Make reads work in llvm
+
+---LLVM Translator Look Up WHat They Do
+BREQ
+
+---What Things Do
+ALLOCATE_ARRAY: Allocate an 1 dim array (temp = arrayIdentifier , size)
+
+
+--DONE
+PrintArrayCorrecto
+HelloWorld
+AreaCalculations - COMPLETE
+
+
+
+
+-----Code Tests
+    i := 1;
+    if (i <> 0) then
+        if (i > 0) then
+            if (i < 10) then
+                numbers[1] := 1;
+            else
+                numbers[1] := 2;
+    else if (i = 0) then
+        if(i = 0) then
+            begin
+                numbers[1] := 1;
+                numbers[2] := c;
+                c := 1;
+                read(c);
+                write("Hello", c);
+                if(c = 'a') then
+                    write("a");
+                else
+                    write("b");
+            end;
+        else
+            numbers[1] := 2;
+    else
+        begin
+            numbers[1] := 1;
+            numbers[2] := c;
+            c := 1;
+            read(c);
+            write("Hello", c);
+            if(c = 'a') then
+                write("a");
+            else
+                write("b");
+        end;
+
+    while (i < 10) do
+        begin
+            numbers[1] := 1;
+            numbers[2] := c;
+            c := 1;
+            read(c);
+            write("Hello", c);
+            if(c = 'a') then
+                write("a");
+            else
+                write("b");
+        end;
+
+    while (i < 10) do
+        while (i < 10) do
+            numbers[1] := 1;
+
+    while(c = 1) do
+        numbers[1] := 1;
+
+    while(c = 1) do
+        while(c = 1) do
+            numbers[1] := 1;
+
+    while(b < c) do
+        begin
+            numbers[1] := 1;
+            numbers[2] := c;
+            c := 1;
+            read(c);
+            write("Hello", c);
+            if(c = 'a') then
+                write("a");
+            else
+                write("b");
+        end;

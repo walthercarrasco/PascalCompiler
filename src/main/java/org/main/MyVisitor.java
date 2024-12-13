@@ -1,5 +1,9 @@
 package org.main;
 
+import MiniPascalClasses.MiniPascalBaseVisitor;
+import MiniPascalClasses.MiniPascalParser;
+
+
 public class MyVisitor extends MiniPascalBaseVisitor<String> {
     @Override
     public String visitProgram_block(MiniPascalParser.Program_blockContext ctx) {
@@ -403,19 +407,7 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
 
     @Override
     public String visitExprChar(MiniPascalParser.ExprCharContext ctx) {
-        String str = ctx.SINGLE_QUOTE(0).getText();
-
-        if(ctx.ID() != null)
-        {
-            str += ctx.ID().getText();
-        }
-        else if(ctx.NUM() != null)
-        {
-            str += ctx.NUM().getText();
-        }
-
-        str += ctx.SINGLE_QUOTE(1).getText();
-        return str;
+        return ctx.CHR().getText();
     }
 
     @Override
@@ -495,14 +487,14 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
         else if(ctx.arrayExpression()!=null){
             str += this.visitArrayExpression(ctx.arrayExpression());
         }
-        str =ctx.RPAREN().getText() +ctx.SEMI().getText();
+        str +=ctx.RPAREN().getText() +ctx.SEMI().getText();
 
         return str;
     }
 
     @Override
     public String visitWriteNormal(MiniPascalParser.WriteNormalContext ctx) {
-        String str =  ctx.WRITE().getText() + ctx.LPAREN().getText() + ctx.CONST_VAL().getText();
+        String str =  ctx.WRITE().getText() + ctx.LPAREN().getText() + ctx.STR().getText();
 
         if(ctx.COMMA() != null)
         {
@@ -512,13 +504,10 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
             {
                 str += ctx.ID().getText();
             }
-            else if(ctx.expression() != null)
+
+            if(ctx.arrayExpression() != null)
             {
-                str += ctx.expression().getText();
-            }
-            else if(ctx.STR() != null)
-            {
-                str += ctx.STR().getText();
+                str += this.visitArrayExpression(ctx.arrayExpression());
             }
         }
 
@@ -529,7 +518,7 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
 
     @Override
     public String visitWriteLine(MiniPascalParser.WriteLineContext ctx) {
-        String str =  ctx.WRITELN().getText() + ctx.LPAREN().getText() + ctx.CONST_VAL().getText();
+        String str =  ctx.WRITELN().getText() + ctx.LPAREN().getText() + ctx.STR().getText();
 
         if(ctx.COMMA() != null)
         {
@@ -539,14 +528,12 @@ public class MyVisitor extends MiniPascalBaseVisitor<String> {
             {
                 str += ctx.ID().getText();
             }
-            else if(ctx.expression() != null)
+
+            if(ctx.arrayExpression() != null)
             {
-                str += ctx.expression().getText();
+                str += this.visitArrayExpression(ctx.arrayExpression());
             }
-            else if(ctx.STR() != null)
-            {
-                str += ctx.STR().getText();
-            }
+
         }
 
         str += ctx.RPAREN().getText() + ctx.SEMI().getText();
